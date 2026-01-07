@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+/* 🔥 KILL ANY LEFTOVER OVERLAY */
+.modal-backdrop,
+.overlay,
+.backdrop,
+.blur-layer,
+.loader-overlay {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+

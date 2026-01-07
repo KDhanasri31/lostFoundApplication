@@ -1,0 +1,321 @@
+/* Full-page background and centering */
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top left, #f5fbff 0, #ffe7f2 40%, #ffe9f6 100%);
+  color: #222222;
+}
+
+/* Put this in FoundEntry.css or a global CSS file */
+
+.success-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.success-card {
+  background: #ffe6f3;
+  border-radius: 18px;
+  padding: 28px 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 520px;           /* wider so text fits in one line */
+  width: 90%;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;   /* change font */
+}
+
+.success-title {
+  margin: 18px 0 20px;
+  font-size: 20px;            /* reduced font size */
+  font-weight: 600;
+  color: #e0007b;
+}
+
+.success-icon {
+  margin: 10px auto 16px;   /* spacing between text and button */
+  width: 52px;              /* smaller circle */
+  height: 52px;
+  border-radius: 50%;
+  background: #2ecc71;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pop-in 0.5s ease-out forwards;
+}
+
+.success-tick {
+  width: 22px;              /* smaller tick */
+  height: 11px;
+  border-left: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  transform: rotate(-45deg) scale(0);
+  transform-origin: center;
+  animation: draw-tick 0.35s ease-out 0.25s forwards;
+}
+
+
+/* OK button keep as before, maybe a bit bigger */
+.success-ok-btn {
+  padding: 10px 40px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff4da6, #ff80bf);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 77, 166, 0.4);
+  font-size: 16px;
+}
+
+/* Animations */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.4);
+    box-shadow: 0 0 0 rgba(46, 204, 113, 0.5);
+  }
+  60% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+  }
+}
+
+@keyframes draw-tick {
+  0% {
+    transform: rotate(-45deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.success-card h3 {
+  margin: 0 0 16px;
+  color: #cc007a;
+  font-weight: 600;
+}
+
+.success-ok-btn {
+  padding: 8px 32px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff4da6, #ff80bf);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 77, 166, 0.4);
+}
+
+.success-ok-btn:hover {
+  filter: brightness(1.05);
+}
+
+
+/* Root wrapper for this screen: center card */
+body > #root,
+body > div {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main container */
+.container,
+.container-found-entry {
+  width: 100%;
+  max-width: 960px;
+  padding: 24px;
+}
+
+/* Row just keeps card centered */
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+/* Card that matches the design */
+.card {
+  width: 100%;
+  max-width: 18000px;
+  /* softer, theme-matching background instead of pure white */
+  background: #fff7fb !important;     /* or #fff7fb for a subtle pink tint */
+  border-radius: 26px;
+  border: 1px solid rgba(255, 182, 213, 0.35); /* soft pink border to blend */
+  padding: 32px 48px 32px;
+  box-shadow: 0 30px 80px rgba(255, 120, 170, 0.25); /* pinkish shadow */
+  margin: 0 auto;
+}
+
+/* Inner wrapper */
+.login-box {
+  width: 100%;
+  background:#ffeef9 !important; 
+}
+
+/* Heading */
+.login-box h2 {
+  margin: 0 0 14px;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  color: #222222;
+}
+
+/* Underline accent like the reference design */
+.login-box h2 u {
+  text-decoration: none;
+  position: relative;
+}
+
+.login-box h2 u::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff4b8b, #ff6fb5);
+}
+
+/* Form layout */
+form {
+  margin-top: 26px;
+}
+
+/* Form groups and labels */
+.form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555555;
+}
+
+/* Inputs */
+.form-control {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 9px 12px;
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control:focus {
+  border-color: #ff4b8b;
+  box-shadow: 0 0 0 3px rgba(255, 75, 139, 0.18);
+}
+
+/* Error text */
+.form-group p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #e11d48;
+}
+
+/* Button row: both inside card, centered */
+.form-group:last-child {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Primary Submit button: solid pink pill */
+.btn.btn-primary {
+  min-width: 140px;
+  background: linear-gradient(90deg, #ff4b8b, #ff6fb5);
+  border: none;
+  padding: 9px 22px;
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(255, 80, 130, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.btn.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(255, 80, 130, 0.45);
+  filter: brightness(1.03);
+}
+
+.btn.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 22px rgba(255, 80, 130, 0.3);
+}
+
+/* Secondary Return button: outlined pill */
+.btn.btn-success {
+  min-width: 140px;
+  background: transparent;
+  border-radius: 999px;
+  padding: 9px 22px;
+  border: 2px solid #ff6fb5;
+  color: #ff3f8b;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.btn.btn-success:hover {
+  background: rgba(255, 111, 181, 0.06);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(148, 27, 89, 0.18);
+}
+
+.btn.btn-success:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(148, 27, 89, 0.15);
+}
+
+/* Remove stray <br> spacing if you kept it in JSX */
+body > div > br {
+  display: none;
+}
+.btn-secondary {
+  width: 35%;
+  height: 3%;
+  padding: 8px 32px;
+  border-radius: 999px;
+  margin-top: 3%;
+  border: none;
+  background: linear-gradient(135deg, #320f21, #ff80bf);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(201, 139, 192, 0.4);
+}
+
+.btn-secondary:hover {
+  filter: brightness(1.05);
+}

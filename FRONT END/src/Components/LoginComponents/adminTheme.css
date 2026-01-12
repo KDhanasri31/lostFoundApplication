@@ -1,0 +1,212 @@
+/* admintheme.css
+   Soft gradient theme + centered top-nav + hero + cards
+*/
+
+:root{
+  --bg-left: #f6fbff;
+  --bg-right: #fff1f4;
+  --accent: #ff2f6b;
+  --accent-dark: #d63366;
+  --muted: #6b6b6b;
+  --card-bg: rgba(255,255,255,0.75);
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(90deg, var(--bg-left) 0%, var(--bg-right) 100%);
+  color: #222;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Page container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---------- Top nav (full width band, centered inner content) ---------- */
+.top-nav {
+  position: fixed;
+  top: 0;         /* CHANGE to 0 */
+  left: 0;
+  right: 0;
+  width: 100%;    /* ADD */
+  z-index: 40;
+  pointer-events: none;
+  background-color: #FFD5D5;
+  height: 10%;
+}
+
+.top-nav-inner {
+  pointer-events: auto;
+  font-size: 20px;
+  padding: 12px 40px;  /* add some spacing */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;         /* ADD */
+  max-width: none;     /* CHANGE */
+}
+
+.logo {
+  margin: 0;
+  padding: 0 800px 0 0;
+  font-size: 30px;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: -0.01em;
+}
+
+
+.logo .accent, .accent {
+  color: var(--accent);
+}
+
+/* Navbar (inside centered wrapper) */
+.site-navbar {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+.site-navbar .navbar-collapse {
+  justify-content: flex-end;
+}
+
+.site-navbar .nav-link,
+.site-navbar .dropdown-toggle {
+  color: #111 !important;
+  margin-left: 18px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .dropdown-item:hover {
+  color: var(--accent);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  margin-top: 150px; /* space for top-nav */
+  text-align: center;
+  padding: 24px 20px 36px;
+}
+
+.hero h2 {
+  font-size: clamp(32px, 6vw, 64px);
+  line-height: 1.02;
+  margin: 0 auto 14px;
+  max-width: 1100px;
+  font-weight: 800;
+  color: #222;
+  letter-spacing: -0.02em;
+}
+
+.hero h2 .accent {
+  color: var(--accent);
+}
+
+.hero p.lead {
+  font-size: 1.02rem;
+  color: var(--muted);
+  margin: 12px 0 20px;
+  font-weight: 500;
+}
+
+/* CTA buttons */
+.hero .cta {
+  display: inline-flex;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.btn-cta-solid {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 8px 20px rgba(255,47,107,0.14);
+  text-decoration: none;
+}
+
+.btn-cta-outline {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 2px solid rgba(214,51,102,0.18);
+  padding: 12px 26px;
+  border-radius: 40px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ---------- FEATURES ROW ---------- */
+.features-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 44px;
+  align-items: start;
+  justify-items: center;
+}
+
+@media (max-width: 1000px) {
+  .features-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .features-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* feature card */
+.feature-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 30px 24px;
+  box-shadow: 0 18px 40px rgba(20,20,30,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+  text-align: center;
+}
+
+.feature-card h3 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+  color: #222;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 900px) {
+  .container { padding: 20px; }
+  .logo { font-size: 1.15rem; }
+  .hero { margin-top: 98px; padding: 20px 14px 30px; }
+  .hero h2 { font-size: clamp(26px, 7vw, 42px); }
+}
+
+/* small screens */
+@media (max-width: 576px) {
+  .top-nav { top: 8px; }
+  .top-nav-inner { padding: 0 14px; }
+  .hero { margin-top: 84px; }
+  .logo { font-size: 1rem; }
+  .site-navbar .nav-link { margin-left: 8px; font-size: 0.95rem; }
+}
